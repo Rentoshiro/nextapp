@@ -1,10 +1,11 @@
-import { getMeal } from "@/lib/meals";
+import { getMeal, deleteMeal } from "@/lib/meals";
 import classes from "./page.module.css";
 import Image from "next/image";
 
 export default async function Meals({ params }) {
   const meal = await getMeal(params.slug);
   meal.instructions = meal.instructions.replace(/\n/g, "<br/>");
+
   return (
     <>
       <header className={classes.header}>
